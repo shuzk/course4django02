@@ -5,3 +5,9 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("helloworld")
+
+
+def weather(request, year, city):
+    print(year,city)
+
+    return HttpResponse("%s,,%s"%(year,city))
