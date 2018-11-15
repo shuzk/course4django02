@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^demo_view/', views.demo_view),
     url(r'^demo_view3/', views.demo_view3),
     url(r'^demo_view2/', views.demo_view2),
+    url(r'^demo_view4/', views.demo_view4),
+    url(r'^demo_view5/', views.demo_view5),
 ]

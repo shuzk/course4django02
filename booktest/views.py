@@ -102,3 +102,15 @@ def demo_view3(request):
 
     template = loader.get_template('index.html')
     return HttpResponse(template)
+
+
+def demo_view4(request):
+    response = HttpResponse('ok')
+    response.set_cookie('itcast1', 'python1')
+    response.set_cookie('itcast2', 'python2', max_age=3600)
+    return response
+
+def demo_view5(request):
+    cookie1 = request.COOKIES.get('itcast1')
+    print(cookie1)
+    return HttpResponse('OK')
