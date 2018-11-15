@@ -5,6 +5,8 @@ import rest_framework
 
 
 # Create your views here.
+from django.template import loader
+
 
 def index(request):
     return HttpResponse("helloworld")
@@ -76,12 +78,27 @@ def get_headers(request):
 
 
 
-# from django.http import HttpResponse
-#
-# def demo_view(request):
-#     return HttpResponse('itcast python', status=400)
-#     # 或者
-#     response = HttpResponse('itcast python')
-#     response.status_code = 400
-#     response['Itcast'] = 'Python'
-#     return response
+from django.http import HttpResponse
+
+def demo_view(request):
+    return HttpResponse('itcast python', status=400)
+    # 或者
+    response = HttpResponse('itcast python')
+    response.status_code = 400
+    response['Itcast'] = 'Python'
+    return response
+
+from django.http import JsonResponse
+
+def demo_view2(request):
+    return JsonResponse({'city': 'beijing', 'subject': 'python'})
+
+
+from django.shortcuts import redirect
+
+def demo_view3(request):
+    # return redirect('/booktest/index')
+    # return redirect('/index.html')
+
+    template = loader.get_template('index.html')
+    return HttpResponse(template)
